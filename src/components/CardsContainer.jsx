@@ -58,8 +58,6 @@ const CardsContainer = ({ isEditMode, newCardPosition, onCreatingStop }) => {
             width: "100vw",
             top: 0,
             left: 0,
-            scale: '.5',
-            border: "1px solid black",
         }}>
             {
                 displayedCards.map((card) => (

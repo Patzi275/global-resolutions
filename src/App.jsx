@@ -99,8 +99,8 @@ function App() {
         pinch={{excluded: ['pinchDisabled', 'allDisabled']}}
         wheel={{excluded: ['wheelDisabled', 'allDisabled']}}
         ref={transformComponentRef}
-        initialScale={5} // Modifier la valeur de l'échelle initiale selon vos besoins
-        minScale={1} // Modifier la valeur de l'échelle minimale selon vos besoins
+        initialScale={1}
+        minScale={.7} 
         centerOnInit
       >
         <TransformComponent>

@@ -1,16 +1,16 @@
-function addCardId(cardId) {
-    const existingCardIds = getCardIds();
+function addCardIdToLocalStorage(cardId) {
+    const existingCardIds = getCardIdsFromLocalStorage();
     existingCardIds.push(cardId);
     localStorage.setItem('cardIds', JSON.stringify(existingCardIds));
 }
 
-function removeCardId(cardId) {
-    const existingCardIds = getCardIds();
+function removeCardIdFromLocalStorage(cardId) {
+    const existingCardIds = getCardIdsFromLocalStorage();
     const updatedCardIds = existingCardIds.filter(id => id !== cardId);
     localStorage.setItem('cardIds', JSON.stringify(updatedCardIds));
 }
 
-function getCardIds() {
+function getCardIdsFromLocalStorage() {
     const cardIds = localStorage.getItem('cardIds');
     if (cardIds) {
         return JSON.parse(cardIds);
@@ -19,4 +19,4 @@ function getCardIds() {
     }
 }
 
-export { addCardId, removeCardId, getCardIds };
+export { addCardIdToLocalStorage, removeCardIdFromLocalStorage, getCardIdsFromLocalStorage };

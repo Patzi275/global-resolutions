@@ -1,8 +1,6 @@
 import Markdown from 'markdown-to-jsx';
 import React, { useEffect, useRef, useState } from 'react';
 
-const randomId = () => Math.random().toString(36).substring(2, 11);
-
 const Card = ({ id, position, colors, content, author, rotation, onSubmit, onCancel, onDelete, isUpdateMode }) => {
     const style = {
         container: {
@@ -53,11 +51,11 @@ const Card = ({ id, position, colors, content, author, rotation, onSubmit, onCan
     }
 
     const handleSubmit = function () {
-        const rotate = (Math.random() * 10 - 5) * (Math.random() > .5 ? 1 : -1);
+        const rotate = (Math.random() * 10) * (Math.random() > .5 ? 1 : -1);
         setEditing(false);
         setRotate(rotate);
         const payload = {
-            id: id.startsWith('temp') ? randomId() : id,
+            id,
             position,
             colors,
             content: text,
@@ -100,7 +98,7 @@ const Card = ({ id, position, colors, content, author, rotation, onSubmit, onCan
                 </div>
             </div>
             <div style={style.container}>
-                <Markdown options={{ forceBlock: false }}>{treatTextForMarkdown(text)}</Markdown>
+                <Markdown options={{ forceBlock: true }}>{treatTextForMarkdown(text)}</Markdown>
                 <small style={{ ...style.alignEnd, opacity: .5, fontStyle: 'italic' }}>{name}</small>
             </div>
 

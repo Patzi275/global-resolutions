@@ -87,7 +87,6 @@ function App() {
       height: "100vh",
       width: "100vw",
       overflow: "hidden",
-      border: "1px solid red",
     }}>
       <TransformWrapper
         onZoom={handleZoom}
@@ -99,11 +98,21 @@ function App() {
         pinch={{excluded: ['pinchDisabled', 'allDisabled']}}
         wheel={{excluded: ['wheelDisabled', 'allDisabled']}}
         ref={transformComponentRef}
-        initialScale={1}
+        initialScale={.7}
         minScale={.7} 
         centerOnInit
       >
         <TransformComponent>
+          <h1 style={{
+            position: "absolute",
+            top: "1rem",
+            textAlign: "center",
+            width: "100%",
+            color: "#0001",
+            fontSize: "5rem",
+            fontWeight: "bold",
+
+          }}>2024 resolutions board</h1>
           <CardsContainer 
             newCardPosition={newCardPosition} 
             onCreatingStop={handleCreationStop} 
@@ -121,6 +130,18 @@ function App() {
         onClickEdit={handleClickEdit}
         onClickCenter={handleClickCenter}
       />
+      <div style={{
+        position: "absolute",
+        bottom: "1rem",
+        left: "1rem",
+        color: "#0005",
+        fontSize: "1rem",
+        fontWeight: "bold",
+        textAlign: "left",
+        width: "100%",
+      }}>
+        Made with <span style={{color: "#f00"}}>🧠</span> by <a href="https://twitter.com/patzidev">@patzidev</a>
+      </div>
     </main >
   )
 }

@@ -18,5 +18,14 @@ function getCardIdsFromLocalStorage() {
         return [];
     }
 }
+function isLocalStorageEmpty() {
+    const cardIds = localStorage.getItem('cardIds');
+    if (cardIds) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
-export { addCardIdToLocalStorage, removeCardIdFromLocalStorage, getCardIdsFromLocalStorage };
+
+export { isLocalStorageEmpty, addCardIdToLocalStorage, removeCardIdFromLocalStorage, getCardIdsFromLocalStorage };

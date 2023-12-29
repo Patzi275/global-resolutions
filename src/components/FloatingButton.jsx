@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const FloatingButton = ({ disabled, inCancelMode, onCancel, onClickAdd, onClickEdit, onClickCenter }) => {
+const FloatingButton = ({ disabled, inCancelMode, onCancel, onClickAdd, onClickEdit, onClickCenter, onClickHelp }) => {
     const [active, setActive] = useState(false);
 
     const handleButtonClick = () => {
@@ -16,17 +16,19 @@ const FloatingButton = ({ disabled, inCancelMode, onCancel, onClickAdd, onClickE
             onClickEdit();
         } else if (action === 'center') {
             onClickCenter();
+        } else if (action === 'help') {
+            onClickHelp();
         }
         setActive(false);
     }
 
     return (
-        <div 
+        <div
             className={`floating-button 
                 ${active ? 'floating-button--active' : ''} 
                 ${inCancelMode ? 'floating-button--cancel' : ''} 
                 ${disabled ? 'floating-button--disabled' : ''}`}
-            >
+        >
             {
                 inCancelMode
                     ? <button type='button' className="trigger" onClick={onCancel}>
@@ -36,6 +38,11 @@ const FloatingButton = ({ disabled, inCancelMode, onCancel, onClickAdd, onClickE
                     </button>
 
                     : <>
+                        <button type='button' className="help" onClick={handleClickSubButton}>
+                            <span className="material-symbols-outlined">
+                                help
+                            </span>
+                        </button>
                         <button type='button' className="add" onClick={handleClickSubButton}>
                             <span className="material-symbols-outlined">
                                 add

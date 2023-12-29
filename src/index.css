@@ -1,0 +1,111 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'lato';
+}
+
+.card {
+  position: absolute;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  transition: all 200ms ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.card textarea {
+  border: 1px solid white;
+}
+
+.card a {
+  color: inherit;
+}
+
+.card img {
+  width: 100%;
+  max-width: 15rem;
+  height: auto;
+}
+
+.card button {
+  cursor: pointer;
+}
+
+
+
+.floating-button {
+  --color1: #9397FD;
+  --color2: #454673;
+  --color3: #15013A;
+
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.floating-button button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color1);
+  border: none;
+  cursor: pointer;
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 999px;
+  color: white;
+  transition: all 300ms;
+}
+
+.floating-button .trigger {
+  background-color: var(--color1);
+  scale: 1.2;
+  cursor: default;
+}
+
+.floating-button--active .trigger {
+  transform: rotate(90deg);
+  scale: .8;
+  background-color: var(--color2);
+}
+
+.floating-button--active .add {
+  bottom: 3.5rem;
+}
+
+.floating-button--active .edit {
+  --l: calc((3.5rem - 2.25rem/2)* 1.414);
+  bottom: var(--l);
+  right: var(--l);
+}
+
+.floating-button--active .center {
+  right: 3.5rem;
+}
+
+.floating-button--active button:not(.trigger):hover {
+  background-color: var(--color3);
+  transform: scale(1.1);
+}
+
+.floating-button--cancel .trigger {
+  background-color: rgb(255, 76, 76);
+  cursor: pointer;
+}
+
+.floating-button--cancel .trigger:hover {
+  background-color: #8B0000;
+}
+
+.floating-button--disabled .trigger {
+  background-color: #ccc;
+  cursor: default;
+}
